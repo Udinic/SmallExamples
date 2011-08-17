@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res/com.anydo"
+        >
+
+    <com.udinic.custom_properties.UdinicPreferenceCategory
+            android:title="Stuff"
+            >
+        <com.udinic.custom_properties.UdinicPreference
+                android:title="stuff1"
+                android:key="stuff1"/>
+
+        <com.udinic.custom_properties.UdinicPreference
+                android:title="stuff2"
+                android:key="stuff2"/>
+    </com.udinic.custom_properties.UdinicPreferenceCategory>
+
+
+    <com.udinic.custom_properties.UdinicPreferenceCategory
+            android:title="Stuff-other"
+            >
+        <com.udinic.custom_properties.UdinicPreference
+                android:title="stuff3"
+                android:key="stuff3"/>
+    </com.udinic.custom_properties.UdinicPreferenceCategory>
+
+</PreferenceScreen>  
