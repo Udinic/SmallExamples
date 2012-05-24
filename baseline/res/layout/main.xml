@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <LinearLayout android:layout_height="70dip"
+                  android:layout_width="fill_parent"
+                  android:baselineAligned="true"
+                  android:background="#ffffff">
+
+        <Button
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:text="Udinic"/>
+        <!--android:background="#00ff00"-->
+        <!--android:textColor="#000000"-->
+
+
+        <com.udinic.baseline.UdinicBtn
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:text="Udinic with a long text"/>
+        <!--android:background="#00ff00"-->
+        <!--android:textColor="#000000"-->
+
+        <Button
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:text="Chopi"/>
+        <!--android:background="#00ff00"-->
+        <!--android:textColor="#000000"-->
+
+
+     </LinearLayout>
+     </LinearLayout>
