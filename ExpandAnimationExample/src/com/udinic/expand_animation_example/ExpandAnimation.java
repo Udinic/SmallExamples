@@ -29,9 +29,8 @@ public class ExpandAnimation extends Animation {
         mAnimatedView = view;
         mViewLayoutParams = (LayoutParams) view.getLayoutParams();
 
-        // if the bottom margin is 0,
-        // then after the animation will end it'll be negative, and invisible.
-        mIsVisibleAfter = (mViewLayoutParams.bottomMargin == 0);
+        // decide to show or hide the view
+        mIsVisibleAfter = view.getVisibility() == View.VISIBLE ? true : false;
 
         mMarginStart = mViewLayoutParams.bottomMargin;
         mMarginEnd = (mMarginStart == 0 ? (0- view.getHeight()) : 0);
