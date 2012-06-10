@@ -30,7 +30,7 @@ public class ExpandAnimation extends Animation {
         mViewLayoutParams = (LayoutParams) view.getLayoutParams();
 
         // decide to show or hide the view
-        mIsVisibleAfter = view.getVisibility() == View.VISIBLE ? true : false;
+        mIsVisibleAfter = (view.getVisibility() == View.VISIBLE);
 
         mMarginStart = mViewLayoutParams.bottomMargin;
         mMarginEnd = (mMarginStart == 0 ? (0- view.getHeight()) : 0);
