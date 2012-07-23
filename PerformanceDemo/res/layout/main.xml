@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <Button android:id="@+id/traceView"
+            android:text="Traceview Demo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+    <Button android:id="@+id/hprofDemoHeavy"
+            android:text="HPROF Demo (Heavy)"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+    <Button android:id="@+id/hprofDemoLight"
+            android:text="HPROF Demo (Light)"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+    <Button android:id="@+id/strictModeDemo"
+            android:text="StrictMode Demo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+    <View android:layout_height="0dip"
+          android:layout_width="0dip"
+          android:layout_weight="1"/>
+
+    <LinearLayout android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_width="fill_parent">
+        <Button android:id="@+id/deepLayout"
+                android:text="Deep layout"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+        <Button android:id="@+id/wideLayout"
+                android:text="Wide layout"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>
+
