@@ -3,6 +3,7 @@ package com.udinic.performance_demo;
 import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 
@@ -12,12 +13,29 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Random;
 
-public class Main extends Activity
-{
-    /** Called when the activity is first created. */
+public class Main extends Activity {
+    private static final boolean DEVELOPER_MODE = true;
+
+    /**
+     * Called when the activity is first created.
+     */
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
+        if (DEVELOPER_MODE) {
+            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                    .detectDiskReads()
+                    .detectDiskWrites()
+                    .detectNetwork()   // or .detectAll() for all detectable problems
+                    .penaltyFlashScreen()
+                    .build());
+            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                    .detectLeakedSqlLiteObjects()
+                    .detectLeakedClosableObjects()
+                    .penaltyLog()
+                    .penaltyDeath()
+                    .build());
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
@@ -45,12 +63,18 @@ public class Main extends Activity
                 hprofLightExample();
             }
         });
+        findViewById(R.id.strictModeDemo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callWebAddress();
+            }
+        });
     }
 
     public void hprofHeavyExample() {
         Udinic udi = new Udinic();
-        for (int i=0;i<1000; i++)
-            for (int j=0;j<1000; j++)
+        for (int i = 0; i < 1000; i++)
+            for (int j = 0; j < 1000; j++)
                 udi = new Udinic(udi);
     }
 
@@ -58,21 +82,21 @@ public class Main extends Activity
         String string = new String("bla");
         Integer intUdini = 1;
         String[] blas = new String[]{"udini", "is", "the", "man"};
-        Rect r = new Rect(new Random().nextInt(),new Random().nextInt(),new Random().nextInt(),new Random().nextInt());
+        Rect r = new Rect(new Random().nextInt(), new Random().nextInt(), new Random().nextInt(), new Random().nextInt());
         Udinic me = null;
 
         public Udinic(Udinic other) {
             me = other;
         }
 
-        public Udinic(){
+        public Udinic() {
         }
     }
 
     public void hprofLightExample() {
         Rect r = new Rect();
-        for (int i=0;i<10000; i++) {
-            r.set(i,i,i,i);
+        for (int i = 0; i < 10000; i++) {
+            r.set(i, i, i, i);
         }
     }
 
@@ -117,11 +141,11 @@ public class Main extends Activity
             }
 
         } catch (MalformedURLException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
         } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 
@@ -140,21 +164,21 @@ public class Main extends Activity
            of maxDivisors.
         */
 
-        for ( N = 2;  N <= 2000;  N++ ) {
+        for (N = 2; N <= 2000; N++) {
 
             int D;  // A number to be tested to see if its a divisor of N.
             int divisorCount;  // Number of divisors of N.
 
             divisorCount = 0;
 
-            for ( D = 1;  D <= N;  D++ ) {  // Count the divisors of N.
-               if ( N % D == 0 )
-                  divisorCount++;
+            for (D = 1; D <= N; D++) {  // Count the divisors of N.
+                if (N % D == 0)
+                    divisorCount++;
             }
 
             if (divisorCount > maxDivisors) {
-               maxDivisors = divisorCount;
-               numWithMax = N;
+                maxDivisors = divisorCount;
+                numWithMax = N;
             }
 
         }
@@ -180,25 +204,25 @@ public class Main extends Activity
            of maxDivisors.
         */
 
-        for ( N = 2;  N <= 5000;  N++ ) {
+        for (N = 2; N <= 5000; N++) {
 
             int D;  // A number to be tested to see if its a divisor of N.
             int divisorCount;  // Number of divisors of N.
 
             divisorCount = 0;
 
-            for ( D = 1;  D <= N;  D++ ) {  // Count the divisors of N.
-               if ( N % D == 0 )
-                  divisorCount++;
+            for (D = 1; D <= N; D++) {  // Count the divisors of N.
+                if (N % D == 0)
+                    divisorCount++;
             }
 
             if (divisorCount > maxDivisors) {
-               maxDivisors = divisorCount;
-               numWithMax = N;
+                maxDivisors = divisorCount;
+                numWithMax = N;
             }
 
         }
-
+                              `
 //        System.out.println("Among integers between 1 and 10000,");
 //        System.out.println("The maximum number of divisors is " + maxDivisors);
 //        System.out.println("A number with " + maxDivisors + " divisors is " + numWithMax);
