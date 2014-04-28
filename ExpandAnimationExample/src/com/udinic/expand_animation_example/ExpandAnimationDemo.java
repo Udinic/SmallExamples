@@ -35,11 +35,16 @@ public class ExpandAnimationDemo extends Activity {
 
                 View toolbar = view.findViewById(R.id.toolbar);
 
-                // Creating the expand animation for the item
-                ExpandAnimation expandAni = new ExpandAnimation(toolbar, 500);
-
-                // Start the animation on the toolbar
-                toolbar.startAnimation(expandAni);
+                // Start expand/collapse animation, only if animation is not already running
+                if (!(toolbar.getAnimation() instanceof ExpandAnimation)) {
+	                
+	                // Creating the expand animation for the item
+	                ExpandAnimation expandAni = new ExpandAnimation(toolbar, 500);
+	
+	                // Start the animation on the toolbar
+	                toolbar.startAnimation(expandAni);
+	                
+                }
             }
         });
     }
